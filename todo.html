@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    letter-spacing: 1px;
+    font-family: verdana;
+    text-transform: capitalize;
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, #ff0 50%, #333 50%);
+}
+.container{
+    height: 450px;
+    width: 330px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+    padding: 10px;
+    overflow-y:auto;
+}
+#input{
+    height: 50px;
+    width: 100%;
+    outline:none;
+    border: none;
+    border-radius: 5px;
+    background: #666;
+    color: #fff;
+    padding: 0 10px;
+    margin: 15px 0;
+
+
+}
+#input::placeholder{
+    color: #bbb;
+}
+ul li{
+    background: #eee;
+    color: #333;
+    height: 40px;
+    border-radius: 50px;
+    margin: 5px 0;
+    padding: 10px;
+
+   
+}
+ul li .fa-check-circle-o, .fa-trash-o{
+    position:absolute;
+    cursor: pointer;
+}
+ 
+ul .fa-check-circle-o{
+    right: 400px;
+    color: green;
+   
+}
+
+ul .fa-trash-o{
+    right: 2px;
+    color: #ff0033;
+   
+}
+ul .checked{
+    background: lightgreen;
+    text-decoration: line-through;
+    transition: .2s;
+}
+
+
+
+    </style>
+
+
+
+
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <title>To do List App</title>
+</head>
+<body>
+    <div class="container">
+        <input type="text" id="input" placeholder="pre enter to add">
+        <ul>   <i class="fa fa-trash-o " ></i><i class="fa fa-check-circle-o"></i></ul>
+    </div>
+    
+
+    <script type="text/javascript">
+$('document').ready(function(){
+     $('#input').change(function(){
+         var input = $(this).val();
+         $('ul').append('<li>' + input + '<i class="fa fa-trash-o"></i><i class="fa fa-check-circle-o"></i> </li>');
+         $(this).val('')
+     });
+     $('ul').on('click','.fa-trash-o',function(){
+       $(this).parent('li').fadeOut(200);
+     });
+     $('ul').on('click','.fa-check-circle-o',function(){
+       $(this).parent('li').toggleClass('checked');
+     });
+
+
+
+
+
+
+
+
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
